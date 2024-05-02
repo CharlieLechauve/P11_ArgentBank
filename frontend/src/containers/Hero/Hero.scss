@@ -1,0 +1,52 @@
+/*CSS Du composant Hero*/
+
+.Hero {
+  position: relative;
+  &__img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    object-position: 0px 33%;
+
+    @media (max-width: 920px) {
+      height: 250px;
+    }
+  }
+  &__rightBloc {
+    position: absolute;
+    background-color: white;
+    top: 80px;
+    right: 80px;
+    width: 300px;
+    padding: 30px;
+
+    @media (max-width: 920px) {
+      top: 50px;
+      right: 50px;
+      width: 250px;
+      padding: 10px;
+    }
+  }
+  &__title {
+    line-height: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #2c3e50;
+
+    @media (max-width: 920px) {
+      line-height: 20px;
+      font-size: 16px;
+    }
+  }
+  &__txt {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    font-size: 18px;
+    color: #2c3e50;
+
+    @media (max-width: 920px) {
+      font-size: 14px;
+    }
+  }
+}
