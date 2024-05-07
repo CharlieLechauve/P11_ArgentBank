@@ -9,7 +9,7 @@ const Navbar = () => {
         <img
           src={LogoArgentBank}
           className="Navbar__img"
-          alt="Cet élément représente le Logo de l'application web Argent Bank"
+          alt="Argent Bank logo"
         />
       </Link>
       <div className="Navbar__right">
