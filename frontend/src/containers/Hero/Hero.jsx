@@ -6,7 +6,7 @@ const Hero = () => {
     <header className="Hero">
       <img
         src={headerImg}
-        alt="Cette photographie représente un verre transparent avec des pièces avec une petite plante qui y pousse au milieu"
+        alt="Pic of a plan growing in money"
         className="Hero__img"
       />
       <div className="Hero__rightBloc">

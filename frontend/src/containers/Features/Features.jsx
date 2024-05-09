@@ -37,6 +37,7 @@ const Features = () => {
       </div>
     );
   });
+  
   return (
     <>
       <h1 className="features__title">Features</h1>
