@@ -28,7 +28,7 @@ const LoginForm = () => {
               <label htmlFor="email">Username</label>
               <input 
               type="email" 
-              id="Username"
+              id="username"
               name="Username"
               value={username} 
               onChange={(e) => setUsername(e.target.value)} 
@@ -41,7 +41,7 @@ const LoginForm = () => {
               type="password"
               id="password"
               name="password"
-              value={username} 
+              value={password} 
               onChange={(e) => setPassword(e.target.value)} 
               />
             </div>
