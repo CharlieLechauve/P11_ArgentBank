@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../../containers/Navbar/Navbar";
 import Footer from "../../containers/Footer/Footer";
+import { loadProfile } from "../../redux/api";
 
 const User = () => {
+
+  const token = useSelector((state) => state.auth.token);
+  const user = useSelector((state) => state.auth.user);
+  const dispatch = useDispatch();
+
+
+  useEffect(() => {
+    if (token) {
+      loadProfile(dispatch, token);
+    }
+  }, [dispatch, token, user.userName]);
+
+  
   return (
     <div>
       <Navbar />
       <main class="main bg-dark">
       <div class="header">
-        <h1>Welcome back<br />Tony Jarvis!</h1>
+        <h1>
+          Welcome back
+          <br />
+          {user && user.userName}
+          </h1>
         <button class="edit-button">Edit Name</button>
       </div>
       <h2 class="sr-only">Accounts</h2>
