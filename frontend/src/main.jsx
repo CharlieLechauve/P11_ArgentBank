@@ -11,8 +11,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App.jsx";
 import Signin from "./pages/Signin/Signin.jsx";
-import User from "./pages/user/User.jsx";
+import User from "./pages/User/User.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
+
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx"
 
 
 
@@ -27,9 +29,9 @@ const router = createBrowserRouter([
   },
   {
     path: "/user",
-    element: <User />,
+    element: <PrivateRoute  element={<User />} />,
   },
-  {
+  { 
     path: "/*",
     element: <NotFound />,
   }

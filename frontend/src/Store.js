@@ -5,6 +5,6 @@ import authReducer from './redux/authSlice';
 
 export default configureStore({
   reducer: {
-    authReducer,
+    auth: authReducer,
   },
 });
