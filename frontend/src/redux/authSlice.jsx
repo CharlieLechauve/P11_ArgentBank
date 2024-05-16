@@ -26,8 +26,14 @@ const authSlice = createSlice ({
             state.token = null;
             state.error = null;
         },
+
+        updateUserName : (state, action) => {
+            state.user.firstName = action.payload.firtName
+            state.user.lastName = action.payload.lastName
+            state.user.userName = action.payload.userName
+        }
     },
 });
 
-export const { loginSuccess, loginFailure, logout } = authSlice.actions;
+export const { loginSuccess, loginFailure, logout, updateUserName } = authSlice.actions;
 export default authSlice.reducer;
