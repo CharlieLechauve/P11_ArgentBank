@@ -3,7 +3,7 @@ import headerImg from "/img/bank-tree.jpeg";
 
 const Hero = () => {
   return (
-    <header className="Hero">
+    <div className="Hero">
       <img
         src={headerImg}
         alt="Pic of a plan growing in money"
@@ -21,7 +21,7 @@ const Hero = () => {
           Argent Bank today!
         </p>
       </div>
-    </header>
+    </div>
   );
 };
 

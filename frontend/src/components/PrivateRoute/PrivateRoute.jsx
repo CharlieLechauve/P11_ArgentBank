@@ -9,7 +9,7 @@ function PrivateRoute ({element}) {
     if (token) {
         return element;
     } else {
-        return <Navigate to ="/NotFound" replace/>;
+        return <Navigate to ="/Signin" replace/>;
     }
 }
 

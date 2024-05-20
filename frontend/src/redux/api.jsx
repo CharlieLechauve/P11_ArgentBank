@@ -30,7 +30,7 @@ export const loginUser = (userInformation) => async (dispatch) => {
 export async function apiCallToken (token, url, config) {
 
     try {
-        const response = await Axios.post(url,null, {
+        const response = await axios.post(url,null, {
         headers: {
             Authorization: `Bearer ${token}`,
         },
@@ -56,7 +56,7 @@ export const loadProfile = (token) => async (dispatch) => {
     };
 
     try {
-        const response = await Axios.post(url,null,config);
+        const response = await axios.post(url,null,config);
 
         if (response.status === 200 ) {
             const { firstName, lastName, userName } = response.data.body;

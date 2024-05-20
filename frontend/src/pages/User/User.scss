@@ -1,9 +1,12 @@
+@import "../../components/Transactions/Transaction.scss";
+
 .main {
   flex: 1;
 }
 
 .bg-dark {
   background-color: #12002b;
+  padding: 20px;
 }
 
 .account {
@@ -19,28 +22,35 @@
   box-sizing: border-box;
   text-align: left;
   margin-bottom: 2rem;
-}
 
-.account-amount {
-  margin: 0;
-  font-size: 2.5rem;
-  font-weight: bold;
-}
+  &-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
 
-.account-amount-description {
-  margin: 0;
-}
+  &-amount {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
 
-.account-title {
-  margin: 0;
-  padding: 0;
-  font-size: 1rem;
-  font-weight: normal;
-}
+    &-description {
+      margin: 0;
+    }
+  }
 
-.account-content-wrapper {
-  width: 100%;
-  flex: 1;
+  &-title {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: normal;
+  }
+
+  &-content-wrapper {
+    width: 100%;
+    flex: 1;
+  }
+
 }
 
 .edit-button {
@@ -54,6 +64,7 @@
 .header {
   color: #fff;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .transaction-button {
@@ -69,9 +80,6 @@
 }
 
 @media (min-width: 720px) {
-  .account {
-    flex-direction: row;
-  }
 
   .account-content-wrapper.cta {
     flex: 0;

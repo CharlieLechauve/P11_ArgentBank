@@ -1,6 +1,6 @@
 import React , { useEffect }from "react";
 import LogoArgentBank from "/img/argentBankLogo.webp";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../redux/authSlice";
@@ -25,38 +25,44 @@ const Navbar = () => {
   }, [dispatch, token]);
 
   return (
-    <nav className="Navbar">
-      <Link to="/">
-        <img
-          src={LogoArgentBank}
-          className="Navbar__img"
-          alt="Argent Bank logo"
-        />
-      </Link>
-      <div className="Navbar__right">
-        
-        {token ? (
+    <header>
+      <nav className="Navbar">
+        <Link to="/">
+          <img
+            src={LogoArgentBank}
+            className="Navbar__img"
+            alt="Argent Bank logo"
+          />
+        </Link>
+        <div className="Navbar__right">
+          
+          {token ? (
 
-          <div>
-          <i className="fa-solid fa-user-circle Navbar__icon"></i>
-          {user.userName}
-          <i className="fa-solid fa-sign-out Navbar__icon"></i>
-          <Link to={"/"} onClick={handleLogout} className="Navbar__paragraphe">
-          Sign Out
-          </Link>
-          </div>
+            <>
+            <NavLink to='/user' className="Navbar__paragraphe">
+            <i className="fa fa-user-circle Navbar__icon"></i>
+            {user?.userName}
+            </NavLink> 
 
-        ) : (
+            <NavLink to ='/' className="Navbar__paragraphe" onClick={handleLogout}>
+              <i className="fa fa-sign-out Navbar__icon"></i>
+              Sign Out
+            </NavLink>  
+            </>
 
-          <div>
-          <i className="fa-solid fa-circle-user Navbar__icon"></i>
-          <Link to={"/signin"} className="Navbar__paragraphe">
-            Sign In
-          </Link>
-          </div>
-        )}
-      </div>
-    </nav>
+          ) : (
+
+            <div>
+            <i className="fa-solid fa-circle-user Navbar__icon"></i>
+            <Link to={"/signin"} className="Navbar__paragraphe">
+              Sign In
+            </Link>
+            </div>
+          )}
+          
+        </div>
+      </nav>
+    </header>
   );
 };
 
