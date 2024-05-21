@@ -71,7 +71,7 @@ export default function Transaction({ title, amount, description }) {
     Array(transactionsData.length).fill(false)
   );
   
-  //state of the pencil button
+  //state of the pencils button
   const [isPencilOpen, setIsPencilOpen] = useState(
     Array(transactionsData.length).fill(true)
   );

@@ -69,7 +69,7 @@ paths:
        # - application/json
       responses:
         '200':
-          description: User profile retrieved successully
+          description: User profile retrieved successfully
           schema:
             $ref: '#/definitions/ApiResponse'
         '400':
@@ -94,13 +94,94 @@ paths:
         - application/json
       responses:
         '200':
-          description: User profile retrieved successully
+          description: User profile retrieved successfully
           schema:
             $ref: '#/definitions/ApiResponse'
         '400':
           description: Invalid Fields
         '500':
           description: Internal Server Error
+
+
+#GET -> Setting aren't send again + Stockage in URL ok
+  /transactions:
+    get: 
+      security:
+        - Bearer: []
+      tags:
+        - Transactions Module
+      summary: Transaction API
+      description: API for fetching the transactions
+      parameters:
+        - in: query
+          name: month
+          schema:
+          type: integer
+      responses:
+        "200":
+          description: Transactions retrieved successfully
+          schema:
+            $ref: "#/definitions/TransactionsResponse"
+        "400":
+          description: Invalid Fields
+        "500":
+          description: Internal Server Error
+
+
+#Add ID to avoid changing all the transaction at the same time
+/transactions/{id}:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Transactions Module
+      summary: Specific transaction API
+      description: API for fetching a specific transaction
+      parameters:
+        - in: path
+          name: id
+          description: Transaction payload
+          required: true
+          type: string
+          minimum: 1
+      responses:
+        "200":
+          description: Specific transactions retrieved successfully
+          schema:
+            $ref: "#/definitions/SpecificTransactionResponse"
+        "400":
+          description: Invalid Fields
+        "500":
+          description: Internal Server Error
+    
+    
+    put:
+      security:
+        - Bearer: []
+      tags:
+        - Transactions Module
+      summary: Specific transaction API
+      description: API for updating a specific transaction
+      parameters:
+        - in: path
+          name: id
+          description: Update transaction attributes
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: Details Payload
+          required: true
+          schema:
+            $ref: "#/definitions/TransactionUpdate"
+      responses:
+        "200":
+          description: Specific transaction retrieved successfully
+        "400":
+          description: Invalid Fields
+        "500":
+          description: Internal Server Error
+
 securityDefinitions:
   Bearer:
     type: apiKey
@@ -156,3 +237,69 @@ definitions:
     properties:
       userName:
         type: string
+
+
+  Transactions:
+    type: object
+    properties:
+      id:
+        type: string
+        description: transaction id
+      date:
+        type: string
+        format: date
+        description: transaction date
+      description:
+        type: string
+        description: transaction description
+      amount:
+        type: number
+        description: transaction amount
+      balance:
+        type: number
+        description: transaction balance
+
+
+  TransactionsResponse:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+      body:
+        type: array
+        items:
+          $ref: "#/definitions/Transactions"
+        description: transaction length
+
+
+  SpecificTransactionResponse:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+      type:
+        type: string
+      category:
+        type: string
+      note:
+        type: string
+
+
+  TransactionUpdate:
+    type: object
+    properties:
+      status:
+        type: integer
+      id:
+        type: string
+        description: id focused
+      category:
+        type: string
+        description: category changed
+      note:
+        type: string
+        description: note changed
