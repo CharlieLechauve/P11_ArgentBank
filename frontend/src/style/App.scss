@@ -1,15 +1,24 @@
+@import "../components/Feats/Feats.scss";
+@import "../components/Transactions/Transaction.scss";
+
 @import "../containers/Navbar/Navbar.scss";
+@import "../containers/Account/Account.scss";
 @import "../containers/Hero/Hero.scss";
-@import "../containers/Features/Features.scss";
 @import "../containers/Footer/Footer.scss";
-@import "../pages/Signin/Signin.scss";
-@import "../pages/User/User.scss";
+@import "../containers/Form/Form.scss";
 
 html,
 body {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  color: #2c3e50;
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100vh;
   box-sizing: border-box;
+}
+
+.bg-dark {
+  background-color: #12002b;
+  padding: 20px;
 }

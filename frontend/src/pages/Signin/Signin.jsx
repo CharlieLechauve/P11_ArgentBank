@@ -5,11 +5,13 @@ import Form from "../../containers/Form/Form";
 
 const Signin = () => {
   return (
-    <div>
+    <>
+
       <Navbar />
       <Form />
       <Footer />
-    </div>
+      
+    </>
   );
 };
 

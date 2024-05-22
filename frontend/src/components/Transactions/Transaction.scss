@@ -1,8 +1,91 @@
+.account {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  background-color: #fff;
+  width: 80%;
+  margin: 0 auto;
+  flex-direction: column;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  text-align: left;
+  margin-bottom: 2rem;
+
+  &-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  &-amount {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+
+    &-description {
+      margin: 0;
+    }
+  }
+
+  &-title {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: normal;
+  }
+
+  &-content-wrapper {
+    width: 100%;
+    flex: 1;
+  }
+}
+
+
+.edit-button {
+  border-color: #00bc77;
+  background-color: #00bc77;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+}
+
 .transaction {
-    display: grid;
+  display: grid;
   grid-template-columns: 1.5fr 3fr 1fr 1fr 0.3fr;
   align-items: center;
+
+  &-container {
+    width: 100%;
+  }
+
+  &-top {
+    display: grid;
+    grid-template-columns: 1.5fr 3fr 1fr 1fr 0.3fr;
+    padding: 0 10px;
+  }
+
+  &-details {
+    background-color: #00bc77;
+    color: white;
+    border-radius: 5px;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+
+  &-info {
+    display: grid;
+    grid-template-columns: 1.5fr 3fr 1fr 1fr 0.3fr;
+    padding-bottom: 10px;
+
+    p  {
+      margin: 5px 0;
     
+    }
+
+  }
+
   &-button {
     display: block;
     width: 100%;
@@ -13,48 +96,5 @@
     border-color: #00bc77;
     background-color: #00bc77;
     color: #fff;
-    width: 200px;
   }
-
-  &-container {
-    width: 100%;
-  }
-  
-  &-top {
-    display: grid;
-    grid-template-columns: 1.5fr 3fr 1fr 1fr 0.3fr;
-    padding: 0 10px;
-  }
-  
-
-  &-details {
-    background-color: #00bc77;
-    color: white;
-    border-radius: 5px;
-    padding: 0 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
-  }
-  
-  &-info {
-    display: grid;
-    grid-template-columns: 1.5fr 3fr 1fr 1fr 0.3fr;
-    padding-bottom: 10px;
-  }
-
-  &-info p  {
-    margin: 5px 0;
-  
-  }
-
-  &-input {
-    background-color: #00bc77;
-    color: white;
-    border: none;
-    border-bottom: 1px solid;
-  }
-}
-
-.fa-solid {
-    margin-left: 10px;
 }

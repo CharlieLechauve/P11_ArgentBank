@@ -110,7 +110,7 @@ export default function Transaction({ title, amount, description }) {
   };
 
 
-  const OpenTransactionInfo = (index) => {
+  const openTransactionInfo = (index) => {
     const updatedInfoStates = [...transactionInfoStates];
     updatedInfoStates[index] = !updatedInfoStates[index];
     setTransactionInfoStates(updatedInfoStates);
@@ -148,7 +148,7 @@ export default function Transaction({ title, amount, description }) {
 
             <div className="transaction-details" key={index}>
               <div className="transaction" key={index} onClick={() => {
-                OpenTransactionInfo(index)
+                openTransactionInfo(index)
                 let newChevronState = [...chevronState];
                     newChevronState[index] = !newChevronState[index];
                     setChevronState(newChevronState);
@@ -210,7 +210,6 @@ export default function Transaction({ title, amount, description }) {
                                 className="fa-solid fa-check"
                                 onClick={() => {
 
-                                    
                                     let newIsPencilOpen = [...isPencilOpen];
                                     newIsPencilOpen[index] = !newIsPencilOpen[index];
                                     setIsPencilOpen(newIsPencilOpen);

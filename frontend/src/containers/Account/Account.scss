@@ -1,0 +1,53 @@
+.interface {
+    color: #fff;
+    margin-bottom: 2rem;
+    text-align: center;
+
+    &-editname {
+        display: flex;
+        justify-content: center;
+        color: white;
+        margin-bottom: 2rem;
+      }
+    
+    &-button {
+        width: 40%;
+        padding: 10px;
+        margin: 10px;
+        background-color: #00bc77;
+        color: white;
+        border: none;
+        border-radius: 5px;
+  }
+}
+
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 1rem;
+
+    label {
+    font-weight: bold;
+    }
+
+    input {
+    padding: 5px;
+    font-size: 1rem;
+    border-radius: 5px;
+    }
+}
+
+  .edit-button {
+    border-color: #00bc77;
+    background-color: #00bc77;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  .unclickable {
+    background-color: #b2b2b2;
+    color: #5a5a5a;
+    pointer-events: none;
+  }

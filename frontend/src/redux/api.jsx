@@ -1,6 +1,8 @@
 import axios from 'axios';
-import {updateUserName, loginSuccess} from './authSlice';
+import {updateUsername, loginSuccess} from './authSlice';
 
+
+//Connexion
 export const loginUser = (userInformation) => async (dispatch) => {
 
     const url = "http://localhost:3001/api/v1/user/login";
@@ -27,6 +29,8 @@ export const loginUser = (userInformation) => async (dispatch) => {
     }
 }
 
+
+//Send the Token to the API
 export async function apiCallToken (token, url, config) {
 
     try {
@@ -46,6 +50,8 @@ export async function apiCallToken (token, url, config) {
     }
 }
 
+
+//Load the Profil linked to the token sent
 export const loadProfile = (token) => async (dispatch) => {
 
     const url = "http://localhost:3001/api/v1/user/profile";
@@ -60,9 +66,39 @@ export const loadProfile = (token) => async (dispatch) => {
 
         if (response.status === 200 ) {
             const { firstName, lastName, userName } = response.data.body;
-            dispatch(updateUserName({firstName, lastName, userName }));
+            dispatch(updateUsername({ firstName, lastName, userName }));
         }
     } catch (error) {
         console.error(error);
     }
 }
+
+//change usename in the API
+export async function editUsername(token, newUsername, user) {
+    try {
+      const url = 'http://localhost:3001/api/v1/user/profile';
+      const config = {
+        
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+
+      };
+      const requestNewUsername = {
+        userName: newUsername,
+      };
+  
+      const response = await axios.put(url, requestNewUsername, config);
+  
+      if (response.status === 200) {
+        const updatedUser = {
+          ...user, 
+          userName: newUsername, 
+        };
+        return updatedUser;
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }

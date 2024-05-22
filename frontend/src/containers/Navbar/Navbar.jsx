@@ -26,26 +26,26 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className="Navbar">
+      <nav className="navbar">
         <Link to="/">
           <img
             src={LogoArgentBank}
-            className="Navbar__img"
+            className="navbar__img"
             alt="Argent Bank logo"
           />
         </Link>
-        <div className="Navbar__right">
+        <div className="navbar__right">
           
           {token ? (
 
             <>
-            <NavLink to='/user' className="Navbar__paragraphe">
-            <i className="fa fa-user-circle Navbar__icon"></i>
+            <NavLink to='/user' className="navbar__paragraphe">
+            <i className="fa fa-user-circle navbar__icon"></i>
             {user?.userName}
             </NavLink> 
 
-            <NavLink to ='/' className="Navbar__paragraphe" onClick={handleLogout}>
-              <i className="fa fa-sign-out Navbar__icon"></i>
+            <NavLink to ='/' className="navbar__paragraphe" onClick={handleLogout}>
+              <i className="fa fa-sign-out navbar__icon"></i>
               Sign Out
             </NavLink>  
             </>
@@ -53,8 +53,8 @@ const Navbar = () => {
           ) : (
 
             <div>
-            <i className="fa-solid fa-circle-user Navbar__icon"></i>
-            <Link to={"/signin"} className="Navbar__paragraphe">
+            <i className="fa-solid fa-circle-user navbar__icon"></i>
+            <Link to={"/signin"} className="navbar__paragraphe">
               Sign In
             </Link>
             </div>

@@ -119,17 +119,19 @@ paths:
           type: integer
       responses:
         "200":
-          description: Transactions retrieved successfully
+          description: Transactions retrieved successfully.
           schema:
             $ref: "#/definitions/TransactionsResponse"
         "400":
-          description: Invalid Fields
+          description: Invalid Fields.
+        "404":
+          description: The server cannot find the requested resource.
         "500":
-          description: Internal Server Error
+          description: Internal Server Error.
 
 
 #Add ID to avoid changing all the transaction at the same time
-/transactions/{id}:
+/transactions/{transaction-id}:
     get:
       security:
         - Bearer: []
@@ -139,20 +141,22 @@ paths:
       description: API for fetching a specific transaction
       parameters:
         - in: path
-          name: id
+          name: transaction-id
           description: Transaction payload
           required: true
           type: string
           minimum: 1
       responses:
         "200":
-          description: Specific transactions retrieved successfully
+          description: Specific transactions retrieved successfully.
           schema:
             $ref: "#/definitions/SpecificTransactionResponse"
         "400":
-          description: Invalid Fields
+          description: Invalid Fields.
+        "404":
+          description: The server cannot find the requested resource.
         "500":
-          description: Internal Server Error
+          description: Internal Server Error.
     
     
     put:
@@ -164,7 +168,7 @@ paths:
       description: API for updating a specific transaction
       parameters:
         - in: path
-          name: id
+          name: transaction-id
           description: Update transaction attributes
           required: true
           type: string
@@ -176,11 +180,13 @@ paths:
             $ref: "#/definitions/TransactionUpdate"
       responses:
         "200":
-          description: Specific transaction retrieved successfully
+          description: Specific transaction retrieved successfully.
         "400":
-          description: Invalid Fields
+          description: Invalid Fields.
+        "404":
+          description: The server cannot find the requested resource.
         "500":
-          description: Internal Server Error
+          description: Internal Server Error.
 
 securityDefinitions:
   Bearer:
@@ -258,7 +264,12 @@ definitions:
       balance:
         type: number
         description: transaction balance
-
+      #category:
+        #type: string
+        #description: transaction category
+      #note:
+        #type: string
+        #description: transaction category
 
   TransactionsResponse:
     type: object
@@ -273,7 +284,6 @@ definitions:
           $ref: "#/definitions/Transactions"
         description: transaction length
 
-
   SpecificTransactionResponse:
     type: object
     properties:
@@ -287,7 +297,6 @@ definitions:
         type: string
       note:
         type: string
-
 
   TransactionUpdate:
     type: object

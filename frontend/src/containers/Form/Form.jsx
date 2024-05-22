@@ -53,14 +53,14 @@ const LoginForm = () => {
 
 
   return (
-    <main className="Signin">
-        <section className="Signin__form">
+    <main className="signin">
+        <section className="signin__form">
           <i className="fa fa-user-circle Signin__icon"></i>
           <h1>Sign In</h1>
 
           <form onSubmit={handleLogin}>
 
-            <div className="Signin__wrapper">
+            <div className="signin__wrapper">
               <label htmlFor="email">Username</label>
               <input 
               type="email" 
@@ -71,7 +71,7 @@ const LoginForm = () => {
               />
             </div>
 
-            <div className="Signin__wrapper">
+            <div className="signin__wrapper">
               <label htmlFor="password">Password</label>
               <input 
               type="password"
@@ -82,7 +82,7 @@ const LoginForm = () => {
               />
             </div>
 
-            <div className="Signin__remember">
+            <div className="signin__remember">
               <input 
               type="checkbox" 
               id="remember-me"
@@ -91,7 +91,7 @@ const LoginForm = () => {
               <label htmlFor="remember-me">Remember me</label>
             </div>
 
-            <button className="Signin__btn" type="submit">Sign In</button>
+            <button className="signin__btn" type="submit">Sign In</button>
       
           </form>
         </section>
