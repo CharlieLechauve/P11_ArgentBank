@@ -12,8 +12,8 @@ const LoginForm = () => {
     const [rememberUser, setRememberUser] = useState (false);
 
     useEffect (() => {
-      const rememberedEmail = sessionStorage.getItem('rememberedEmail');
-      const rememberedPassword = sessionStorage.getItem('rememberedPassword');
+      const rememberedEmail = localStorage.getItem('rememberedEmail');
+      const rememberedPassword = localStorage.getItem('rememberedPassword');
       if (rememberedEmail) {
         setEmail(rememberedEmail);
         setPassword(rememberedPassword);
@@ -31,8 +31,8 @@ const LoginForm = () => {
     
 
             if (rememberUser) {
-              sessionStorage.setItem('rememberedEmail', email);
-              sessionStorage.setItem('rememberedPassword', password);
+              localStorage.setItem('rememberedEmail', email);
+              localStorage.setItem('rememberedPassword', password);
             }
 
             setEmail('');
